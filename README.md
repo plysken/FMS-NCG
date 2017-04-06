@@ -8,3 +8,4 @@ Repo des Custom Script FiveM pour NCG
 * [FiveM Download Link](https://forum.fivem.net/t/fivem-release-topic/89)
 * [FiveM Community Script](https://github.com/FiveM-Scripts)
 * [Lambda Menu](https://drive.google.com/file/d/0B65LId6rh6PlWW1jbVdndUVCLVk/view)
+* [Scorpion Trainer](https://forum.fivem.net/t/wip-scorpion-trainer/8175)
