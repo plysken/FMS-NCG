@@ -1,7 +1,7 @@
 # FMS-NCG
 Repo des Custom Script FiveM pour NCG
 
-[![Développement](https://img.shields.io/badge/Developpement-No%20build-red.svg)](#)
+[![Développement](https://img.shields.io/badge/Development-No%20build-red.svg)](#)
 
 ## Liens utiles :
 * [FiveM Development forums](https://forum.fivem.net/c/development)
