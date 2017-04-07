@@ -99,7 +99,7 @@ Citizen.CreateThread(function ()
 								fixInProg =true
 							end
 						elseif fixInProg then
-							DrawSpecialText("⚙️ Reparation en cours. ~h~~y~Veuillez patienter~w~. ⚙️", 1000)
+							DrawSpecialText("⚙️ Reparation en cours. ~h~~y~Veuillez patienter~w~. ⚙️", repairTime)
 							Wait(math.ceil(repairTime))
 							TriggerServerEvent('garage:fixed', math.ceil(amount))
 							SetVehicleFixed(GetVehiclePedIsUsing(GetPlayerPed(-1)))
