@@ -93,13 +93,13 @@ Citizen.CreateThread(function ()
 						local amount = 1000 - GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1),  false))
 						local repairTime = (1000 - GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1),  false)) ) * 100
 						if not fixInProg then
-							DrawSpecialText("Coût des réparations:~h~~y~ "..math.ceil(amount), 1000)
+							DrawSpecialText("Cout des reparations:~h~~y~ "..math.ceil(amount).." 💲", 1000)
 							--ShowMoney(amount)
 							if  IsControlJustPressed(1,  201) then --Trouver la touche "E"
 								fixInProg =true
 							end
 						elseif fixInProg then
-							DrawSpecialText("Réparation en cours. ~h~~y~Veuillez patienter~w~.", 1000)
+							DrawSpecialText("⚙️ Reparation en cours. ~h~~y~Veuillez patienter~w~. ⚙️", 1000)
 							Wait(math.ceil(repairTime))
 							TriggerServerEvent('garage:fixed', math.ceil(amount))
 							SetVehicleFixed(GetVehiclePedIsUsing(GetPlayerPed(-1)))
