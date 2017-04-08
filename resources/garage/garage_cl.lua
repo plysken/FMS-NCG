@@ -53,6 +53,7 @@ Citizen.CreateThread(function ()
 		stationBlip = AddBlipForCoord(garageCoords[1], garageCoords[2], garageCoords[3])
 		SetBlipSprite(stationBlip, 446) --446 = Tools
 		SetBlipAsShortRange(stationBlip, true)
+		SetBlipColour(stationBlip,  25)
 		BeginTextCommandSetBlipName("STRING")
 		AddTextComponentString('Garage')
 		EndTextCommandSetBlipName(stationBlip)
