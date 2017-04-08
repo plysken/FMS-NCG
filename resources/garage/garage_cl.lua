@@ -53,7 +53,6 @@ Citizen.CreateThread(function ()
 		stationBlip = AddBlipForCoord(garageCoords[1], garageCoords[2], garageCoords[3])
 		SetBlipSprite(stationBlip, 446) --446 = Tools
 		SetBlipAsShortRange(stationBlip, true)
-		SetBlipColour(stationBlip,  25)
 		BeginTextCommandSetBlipName("STRING")
 		AddTextComponentString('Garage')
 		EndTextCommandSetBlipName(stationBlip)
@@ -82,6 +81,11 @@ function DrawSpecialText(m_text, showtime)
 	DrawSubtitleTimed(showtime, 1)
 end
 
+RegisterNetEvent('garage:FixingCar')
+AddEventHandler('garage:FixingCar', function()
+	fixInProg =true
+end)
+
 Citizen.CreateThread(function ()
 	while true do
 		Citizen.Wait(0)
@@ -94,15 +98,14 @@ Citizen.CreateThread(function ()
 						local amount = 1000 - GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1),  false))
 						local repairTime = (1000 - GetVehicleEngineHealth(GetVehiclePedIsIn(GetPlayerPed(-1),  false)) ) * 100
 						if not fixInProg then
-							DrawSpecialText("Cout des reparations:~h~~y~ "..math.ceil(amount).." $", 1000)
+							DrawSpecialText("Cout des reparations:~h~~y~ "..math.ceil(amount).." $, appuyez sur 'valider' pour accepter", 1000)
 							--ShowMoney(amount)
 							if  IsControlJustPressed(1,  201) then --Trouver la touche "E"
-								fixInProg =true
+								TriggerServerEvent('garage:askmoney', math.ceil(amount))
 							end
 						elseif fixInProg then
 							DrawSpecialText("Reparation en cours. ~h~~y~Veuillez patienter~w~.", repairTime)
 							Wait(math.ceil(repairTime))
-							TriggerServerEvent('garage:fixed', math.ceil(amount))
 							SetVehicleFixed(GetVehiclePedIsUsing(GetPlayerPed(-1)))
 							SetVehicleDeformationFixed(GetVehiclePedIsUsing(GetPlayerPed(-1)))
 							SetVehicleUndriveable(GetVehiclePedIsUsing(GetPlayerPed(-1)), false)
