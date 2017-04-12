@@ -1,51 +1,51 @@
-local showtrainer = false
+local afficherMenu = false
 
 Citizen.CreateThread(function()
 	while true do
 		Wait(1)
 
 		if IsControlJustReleased(1, 167) and not blockinput then -- f6 (Voir pour changer la touche plus tard)
-			if not showtrainer then
-				showtrainer = true
+			if not afficherMenu then
+				afficherMenu = true
 				SendNUIMessage({
-					showtrainer = true
+					afficherMenu = true
 				})
 			else
-				showtrainer = false
+				afficherMenu = false
 				SendNUIMessage({
-					hidetrainer = true
+					masquerMenu = true
 				})
 			end
 		end
 
-		if showtrainer and not blockinput then
-			if IsControlJustReleased(1, 176) then -- enter
+		if afficherMenu and not blockinput then
+			if IsControlJustReleased(1, 176) then -- Entrer
 				SendNUIMessage({
-					trainerenter = true
+					menuEnter = true
 				})
-			elseif IsControlJustReleased(1, 177) then -- back / right click
+			elseif IsControlJustReleased(1, 177) then -- Retour / Clique droit
 				SendNUIMessage({
-					trainerback = true
-				})
-			end
-
-			if IsControlJustReleased(1, 172) then -- up
-				SendNUIMessage({
-					trainerup = true
-				})
-			elseif IsControlJustReleased(1, 173) then -- down
-				SendNUIMessage({
-					trainerdown = true
+					menuBack = true
 				})
 			end
 
-			if IsControlJustReleased(1, 174) then -- left
+			if IsControlJustReleased(1, 172) then -- Haut
 				SendNUIMessage({
-					trainerleft = true
+					menuUp = true
 				})
-			elseif IsControlJustReleased(1, 175) then -- right
+			elseif IsControlJustReleased(1, 173) then -- Bas
 				SendNUIMessage({
-					trainerright = true
+					menuDown = true
+				})
+			end
+
+			if IsControlJustReleased(1, 174) then -- Gauche
+				SendNUIMessage({
+					menuLeft = true
+				})
+			elseif IsControlJustReleased(1, 175) then -- Droite
+				SendNUIMessage({
+					menuRight = true
 				})
 			end
 		end
@@ -58,8 +58,8 @@ RegisterNUICallback("playsound", function(data, cb)
 	cb("ok")
 end)
 
-RegisterNUICallback("trainerclose", function(data, cb)
-	showtrainer = false
+RegisterNUICallback("fermertureMenu", function(data, cb)
+	afficherMenu = false
 
 	cb("ok")
 end)
