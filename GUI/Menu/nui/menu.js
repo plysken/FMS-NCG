@@ -3,7 +3,7 @@
 // !! Ici mettre le nom de la ressource !!
 var resourcename = "menu";
 
-// Max amount of items in 1 menu (before autopaging kicks in)
+// Nombre max d'items dans un menu 
 var maxVisibleItems = 7;
 
 /** CODE **/
@@ -20,45 +20,45 @@ var maxamount;
 var pageindicator = "<p id='pageindicator'></p>"
 
 $(function() {
-    container = $("#trainercontainer");
+    container = $("#menuContainer");
     
     init();
     
     window.addEventListener("message", function(event) {
         var item = event.data;
         
-        if (item.showtrainer) {
-            resetTrainer();
+        if (item.afficherMenu) {
+            resetMenu();
             container.show();
-            playSound("YES");
-        } else if (item.hidetrainer) {
+            playSound("OUI");
+        } else if (item.masquerMenu) {
             container.hide();
-            playSound("NO");
+            playSound("NON");
         }
         
-        if (item.trainerenter) {
+        if (item.menuEnter) {
             handleSelectedOption();
-        } else if (item.trainerback) {
-            trainerBack();
+        } else if (item.menuBack) {
+            fmenuBack();
         }
         
-        if (item.trainerup) {
-            trainerUp();
-        } else if (item.trainerdown) {
-            trainerDown();
+        if (item.menuUp) {
+            fMenuUp();
+        } else if (item.menuDown) {
+            fMenuDown();
         }
         
-        if (item.trainerleft) {
-            trainerPrevPage();
-        } else if (item.trainerright) {
-            trainerNextPage();
+        if (item.menuLeft) {
+            menuPrevPage();
+        } else if (item.menuRight) {
+            menuNextPage();
         }
     });
 });
 
 function init() {
     $("div").each(function(i, obj) {
-        if ($(this).attr("id") != "trainercontainer") {
+        if ($(this).attr("id") != "menuContainer") {
             var data = {};
             data.menu = $(this).detach();
             
@@ -84,8 +84,8 @@ function init() {
     });
 }
 
-function trainerUp() {
-    $(".traineroption").eq(counter).attr("class", "traineroption");
+function fMenuUp() {
+    $(".optionMenu").eq(counter).attr("class", "optionMenu");
     
     if (counter > 1) {
         counter -= 1;
@@ -93,12 +93,12 @@ function trainerUp() {
         counter = maxamount;
     }
     
-    $(".traineroption").eq(counter).attr("class", "traineroption selected");
+    $(".optionMenu").eq(counter).attr("class", "optionMenu selected");
     playSound("NAV_UP_DOWN");
 }
 
-function trainerDown() {
-    $(".traineroption").eq(counter).attr("class", "traineroption");
+function fMenuDown() {
+    $(".optionMenu").eq(counter).attr("class", "optionMenu");
     
     if (counter < maxamount) {
         counter += 1;
@@ -106,11 +106,11 @@ function trainerDown() {
         counter = 1;
     }
     
-    $(".traineroption").eq(counter).attr("class", "traineroption selected");
+    $(".optionMenu").eq(counter).attr("class", "optionMenu selected");
     playSound("NAV_UP_DOWN");
 }
 
-function trainerPrevPage() {
+function menuPrevPage() {
     var newpage;
     if (pageExists(currentpage - 1)) {
         newpage = currentpage - 1;
@@ -122,7 +122,7 @@ function trainerPrevPage() {
     playSound("NAV_UP_DOWN");
 }
 
-function trainerNextPage() {
+function menuNextPage() {
     var newpage;
     if (pageExists(currentpage + 1)) {
         newpage = currentpage + 1;
@@ -134,10 +134,10 @@ function trainerNextPage() {
     playSound("NAV_UP_DOWN");
 }
 
-function trainerBack() {
+function fmenuBack() {
     if (content.menu == menus["mainmenu"].menu) {
         container.hide();
-        sendData("trainerclose", {})
+        sendData("fermetureMenu", {})
     } else {
         showMenu(menus[content.menu.data("parent")]);
     }
@@ -146,7 +146,7 @@ function trainerBack() {
 }
 
 function handleSelectedOption() {
-    var item = $(".traineroption").eq(counter);
+    var item = $(".optionMenu").eq(counter);
     
     if (item.data("sub")) {
         var submenu = menus[item.data("sub")];
@@ -181,18 +181,18 @@ function handleSelectedOption() {
 }
 
 function resetSelected() {
-    $(".traineroption").each(function(i, obj) {
-        if ($(this).attr("class") == "traineroption selected") {
-            $(this).attr("class", "traineroption");
+    $(".optionMenu").each(function(i, obj) {
+        if ($(this).attr("class") == "optionMenu selected") {
+            $(this).attr("class", "optionMenu");
         }
     });
     
     counter = 1;
-    maxamount = $(".traineroption").length - 1;
-    $(".traineroption").eq(1).attr("class", "traineroption selected");
+    maxamount = $(".optionMenu").length - 1;
+    $(".optionMenu").eq(1).attr("class", "optionMenu selected");
 }
 
-function resetTrainer() {
+function resetMenu() {
     showMenu(menus["mainmenu"]);
 }
 
