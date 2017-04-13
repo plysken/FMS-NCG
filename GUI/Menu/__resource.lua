@@ -11,5 +11,6 @@ files {
 }
 
 client_scripts {
-	"main.lua"
+	"main.lua",
+	"menu.lua"
 }
