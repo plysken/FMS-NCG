@@ -60,6 +60,13 @@ Citizen.CreateThread(function()
     end
 end)
 
+RegisterNetEvent("job:startbus")
+AddEventHandler("job:startbus", function()
+    DecorRegister("job",  3)
+    DecorSetInt(GetPlayerPed(-1),  "job",  0)
+    MissionText("Tu es desormais ~g~Chômeur~w~", 5000)
+    end)
+
 Citizen.CreateThread(function ()
     while true do
         Citizen.Wait(0)
