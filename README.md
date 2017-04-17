@@ -1,6 +1,9 @@
 # FMS-NCG
 Repo des Custom Script FiveM pour NCG
 
+# A LIRE!
+**Ce que vous trouverez ici est a moitié fait, donc, ne vous attendez pas a ce que ça marche tout bien tout de suite! Si vous vous sentez de vous debrouiller en mettant les mains dans le code pour le faire marcher, téléchargez ce que vous voulez, sinon, attendez la prochaine release!  merci!**
+
 [![Développement](https://img.shields.io/badge/Development-In%20progress-brightgreen.svg)](#)
 
 ## Liens utiles :
