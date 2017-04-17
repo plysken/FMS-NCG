@@ -1,6 +1,6 @@
 -- Loading MySQL Class
 require "resources/essentialmode/lib/MySQL"
-MySQL:open("localhost", "gta5_gamemode_essential", "ncgamers_gtarp", "TRsZEAo8qk0CNoXc")
+MySQL:open("localhost", "gta5_gamemode_essential", "ncgamers_gtarp", "LOL")
 
 RegisterServerEvent('life:savepos')
 AddEventHandler('life:savepos', function(pos)
