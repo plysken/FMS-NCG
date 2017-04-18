@@ -2,7 +2,7 @@
 Repo des Custom Script FiveM pour NCG 
 
 # A LIRE!
-**Suite au nombre de mail reçu demandant comment fonctionne les scripts et leurs utilisations sans crédit ni accord de notre part et des autres dev pour la plupart anglo-saxon, nous avons décidé de supprimer toutes les sources disponibles sur notre Repo. Nous le gardons pour le moment privé sur un autre Repo et reviendrons en temps voulu avec une release publique. 
+**Suite aux nombres de mails reçu demandant comment fonctionnent les scripts et leurs utilisations sans crédit ni accord de notre part et des autres dev pour la plupart anglo-saxons, nous avons décidés de supprimer toutes les sources disponibles sur notre Repo. Nous le gardons pour le moment privé sur un autre Repo et reviendrons en temps voulu avec une release publique. 
 Merci de votre compréhension**
 
 [![Développement](https://img.shields.io/badge/Public%20Development-Stopped-red.svg)](#)
