@@ -1,8 +1,0 @@
-TriggerEvent('es:addCommand', 'noJob', function(source)
-	TriggerClientEvent("job:nojob", source)
-	print(GetPlayerName(soure).."Est au chomage")
-  	--TriggerClientEvent("chatMessage", source, "^3SYSTEM", {255, 255, 255}, "Player Commands ")
-	--TriggerClientEvent("chatMessage", source, "^3SYSTEM", {255, 255, 255}, "-------------------------------------------------------")
-	--TriggerClientEvent("chatMessage", source, "^3SYSTEM", {255, 255, 255}, "/pv - Get teleported in your personal vehicle")
-	--TriggerClientEvent("chatMessage", source, "^3SYSTEM", {255, 255, 255}, "/rmwanted - Remove your wanted level")
-end)
